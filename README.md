@@ -1,4 +1,5 @@
-# Hurl
+# Hurl [![Build Status](https://travis-ci.org/markstgodard/hurl.svg?branch=master)](https://travis-ci.org/markstgodard/hurl)
+
 
 ## About
 
@@ -131,6 +132,11 @@ get an API key, its quick and painless)
     movies_directory: /Volumes/Data/Media/Movies
     tv_directory: /Volumes/Data/Media/TV
     trakt_api_key: <Trakt API Key>
+
+
+NOTE: You may also set your Trakt API KEY using an ENV variable
+
+    export TRAKT_API_KEY=<your trakt api key>
 
 
 Run the web application
