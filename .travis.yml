@@ -2,5 +2,5 @@ language: ruby
 rvm:
 - 2.0.0
 env:
-  TRAKT_API_KEY:
-    secure: NJbyz0dL2skBZ933IjigyPTzCbb/2pCsyxfwKjkllwaTJVPYFesj1gR4TXL19JcHciVN6gDFninpaz3naZAtkJS3uzf3DbiDKS+ikZFdh9Wtt/OmrkQmRa4gEqafEUegBIF0lupML2zEE4oTavqLgjEavrtdBX7nETxHWIIcKyA=
+  matrix:
+    secure: Q2xdtMm3K13T+ayM1bxIx1iHp0bwdUvrxVi1RU6QSPqUmzb2Mb4UocL1ETu0QmglsCFamQPRoJQf0HeWn61KSIAhV+zOukEI/p3p8Aps2j+EzEVWZw7WHpR041CmgTaC0UWTRB0yz120T/Vb+DMSJQkgpKZgu3XOjeAhHt9bBtc=
