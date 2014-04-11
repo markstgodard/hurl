@@ -1,0 +1,17 @@
+{ "name" : "simple-http-server"
+, "version" : "0.1.0"
+, "description" : "A simple server that serves media to a chromecast"
+, "keywords" : "chromecast"
+, "homepage" : "https://github.com/markstgodard/hurl"
+, "bugs" : "https://github.com/markstgodard/hurl"
+, "license" : "Apache-2.0"
+, "main" : "server.js"
+, "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/markstgodard/hurl"
+  }
+,"dependencies" :
+  { "express" : ">=3.4.8",
+  	"dot" : ">=1.0.2"
+  }
+}

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  full_name: MyString
+  poster: MyString
+  art: MyString
+  banner: MyString
+  media_type: MyString
+  genre: MyString
+  year: 1
+
+two:
+  name: MyString
+  full_name: MyString
+  poster: MyString
+  art: MyString
+  banner: MyString
+  media_type: MyString
+  genre: MyString
+  year: 1

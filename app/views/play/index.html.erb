@@ -1,0 +1,86 @@
+
+
+  <div class="container" >
+
+    <div class="row">
+      <div>
+        <h1>Hurl <span class="fa fa-film fa-fw"></span>+<span class="fa fa-home fa-fw"></span></h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <div class="btn-group">
+          <img src="/assets/cast_icon_idle.png" id="casticon" width="30">
+          <button onclick="launchApp()"><span class="glyphicon glyphicon-play"></span></button>
+          <button onclick="stopApp()"><span class="glyphicon glyphicon-stop"></span></button>
+
+          <span id="playerstate">IDLE</span> <h3><span id="nowplayingname"><%= session[:now_playing_title] %></span></h3>
+
+        </div>
+      </div>
+      <div class="btn-group">
+        <br>
+          <button id="playpauseresume" onclick="playMedia()">Play</button>
+          <button onclick="stopMedia()">Stop</button>
+          <span id="muteText">Mute</span>
+          <input type="checkbox" onclick="muteMedia(this);">
+      </div>
+
+
+      <div>
+        <div style="margin:10px;">
+          <input id="progress" type="range" min="1" max="100" value="1" step="1" onmouseup="seekMedia(this.value);">
+          <span id="duration"></span>
+          <div id="progress_tick"></div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+    <% @media.each_with_index do |media, idx| %>
+
+      <% if nth_row(idx, 3) %>
+        <div class="row"> <!-- begin row -->
+      <% end %>
+
+          <div class="col-md-4 thumbnail <%= blur(idx) %>">
+
+            <button type="button" class="btn btn-default"
+              onClick="selectAndPlayMedia('<%= media.full_name %>', '<%= media.art %>', '<%= media.id %>', '<%= media.name %>')"><i class="fa fa-youtube-play fa-fw"></i></button>
+
+            <%= image_tag("#{media.poster}", size: "140x140", title: "Overview: #{media.overview}", class: "tip") %>
+
+            <dl>
+              <dt><%= media.name %></dt>
+              <dd><%= media.year %> (<%= media.genre %>)</dd>
+              <dd><small> <span class="glyphicon glyphicon-time"></span> <%= media.runtime %>m </small>
+                  <small> <span class="glyphicon glyphicon-heart"></span> <%= media.rating %>% </small>  </dd>
+
+            </dl>
+
+          </div>
+
+      <% if nth_row(idx + 1, 3) %>
+        </div> <!-- end row -->
+      <% end %>
+
+    <% end %>
+
+
+
+  <div>
+    <div>
+      <br>
+
+      <div style="margin:10px;visibility: hidden">
+        <textarea rows="20" cols="70" id="debugmessage">
+        </textarea>
+      </div>
+
+
+    </div>
+  </div>

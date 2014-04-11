@@ -1,0 +1,14 @@
+defaults: &defaults
+  media_http_server: http://<IP ADDRESS OF HTTP SERVER>:8000/media
+  movies_directory: /Volumes/Data/Media/Movies
+  tv_directory: /Volumes/Data/Media/TV
+  trakt_api_key: <Trakt API KEY>
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
