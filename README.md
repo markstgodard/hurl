@@ -104,9 +104,11 @@ Install [node](http:node.js), install node packages (one time only) and then run
     > cd scripts
 
 Install node packages (one time only)
+
     > npm install
 
 Run the server
+
     > node server.js
     Server running, listening on port: 8000
 
@@ -132,6 +134,7 @@ get an API key, its quick and painless)
 
 
 Run the web application
+
     > cd hurl
     > rails server
 
