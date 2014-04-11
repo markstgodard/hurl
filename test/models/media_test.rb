@@ -7,7 +7,6 @@ class MediaTest < ActiveSupport::TestCase
   test "valid media" do
 
     movie = media(:fightclub)
-
     assert movie.valid?
 
   end
