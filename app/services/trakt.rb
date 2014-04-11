@@ -117,15 +117,14 @@ module Trakt
 
     last_part = name.split("+").last
 
-    # S02E04
-    puts "checking if this is a Season/Episode format: #{last_part}"
+    # i.e. S02E04
+    #puts "checking if this is a Season/Episode format: #{last_part}"
 
     match = last_part.scan(/S(\d+)E(\d+)/)
     if match != nil and match.size == 1 and match[0].size == 2
       s = match[0][0].to_i
       e = match[0][1].to_i
-      puts "Season: #{s} episode: #{e}"
-
+      
       # Breaking+Bad+S05E12+
       hyphen_name = name.gsub!(/\+/,"-").gsub!(last_part,"").gsub!("--","").downcase
 

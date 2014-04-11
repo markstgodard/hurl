@@ -9,7 +9,6 @@ class TraktTest < ActiveSupport::TestCase
 
   test "search by episode" do
       json = Trakt::fetch_media_info(@api_key, "Breaking+Bad+S05E12+", :shows)
-      puts json
       assert_equal "http://slurm.trakt.us/images/fanart/126.54.jpg",
                     json[:art]
 
@@ -20,7 +19,6 @@ class TraktTest < ActiveSupport::TestCase
 
   test "search by tv show" do
       json = Trakt::fetch_media_info(@api_key, "Breaking+Bad+", :shows)
-      puts json
 
       # this will be a generic poster
       assert_equal "http://slurm.trakt.us/images/posters/126.54.jpg",
@@ -30,7 +28,6 @@ class TraktTest < ActiveSupport::TestCase
   test "search by movie" do
 
       json = Trakt::fetch_media_info(@api_key, "Fight+Club+", :movies)
-      puts json
 
       # this will be the movie poster
       assert_equal "http://slurm.trakt.us/images/posters_movies/346.2.jpg",
