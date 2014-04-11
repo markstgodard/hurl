@@ -181,9 +181,19 @@ do a Media.delete_all, for example:
     => 28
 
 
+
+
 ### TODOs
 
  - Need to cleanup UI
  - add a box at the top right to set the image of the thumbnail of Now Watching
  - improve media lookup, less hacky / dependent on naming conventions
  - update tests to use VCR instead of hitting Trakt
+
+
+## License
+
+I based the chromecast / javascript off of the Google CastHelloVideo-chrome
+sample application: https://github.com/googlecast/CastHelloVideo-chrome
+which is under the Apache 2.0 License. This project is also under the Apache 2.0
+license.
