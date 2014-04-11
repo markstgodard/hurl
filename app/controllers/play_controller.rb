@@ -6,15 +6,14 @@ require 'open-uri'
 class PlayController < ApplicationController
 
   SERVER = APP_CONFIG['media_http_server']
-  API_KEY = APP_CONFIG['trakt_api_key']
 
   #
   # main page that serves up all movies, shows
   #
   def index
 
-    movies = MediaManager.load_media_files(APP_CONFIG['movies_directory'], :movies, SERVER, API_KEY)
-    shows = MediaManager.load_media_files(APP_CONFIG['tv_directory'], :shows, SERVER, API_KEY)
+    movies = MediaManager.load_media_files(APP_CONFIG['movies_directory'], :movies, SERVER)
+    shows = MediaManager.load_media_files(APP_CONFIG['tv_directory'], :shows, SERVER)
 
     # hack for now, will later have separate pages for Movies vs. TV shows
     @media = movies + shows

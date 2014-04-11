@@ -1,6 +1,9 @@
 require 'httparty'
 require 'json'
 
+class TraktMissingApiKeyError < RuntimeError
+end
+
 #
 # Trakt API support for fetching media info for
 #  movies, TV shows using
@@ -8,6 +11,19 @@ require 'json'
 # For more information: http://trakt.tv/api-docs
 #
 module Trakt
+
+  def self.api_key
+
+    api_key = APP_CONFIG['trakt_api_key']
+    if api_key == "<Trakt API KEY>"
+      # not set in config, check/use environment variable
+      api_key = ENV["TRAKT_API_KEY"]
+
+      raise TraktMissingApiKeyError if api_key == nil or api_key.empty?
+    end
+    api_key
+
+  end
 
   def self.fetch_media_info(api_key, name, type)
     info = Hash.new
@@ -124,7 +140,7 @@ module Trakt
     if match != nil and match.size == 1 and match[0].size == 2
       s = match[0][0].to_i
       e = match[0][1].to_i
-      
+
       # Breaking+Bad+S05E12+
       hyphen_name = name.gsub!(/\+/,"-").gsub!(last_part,"").gsub!("--","").downcase
 

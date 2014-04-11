@@ -8,7 +8,10 @@ class MediaManager
 
   # fetch media files from accessible directory
   # and return list of media entities
-  def self.load_media_files(dir, type, server, api_key)
+  def self.load_media_files(dir, type, server)
+
+    api_key = Trakt::api_key
+
     files = []
     # get the subdir from main server (i.e. TV, Movies)
     subdir = dir.split("/").reverse.first
@@ -77,7 +80,7 @@ class MediaManager
     clean
   end
 
-  # seriously, is this a number 
+  # seriously, is this a number
   def self.is_number?(val)
     true if Float(val) rescue false
   end
