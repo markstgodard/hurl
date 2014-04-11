@@ -1,8 +1,9 @@
+require 'test_helper'
+
 class TraktTest < ActiveSupport::TestCase
 
-
   setup do
-    @api_key = "af1a89bd8172897debf69cc6f8a43a9c"
+    @api_key = APP_CONFIG['trakt_api_key']
   end
 
 
@@ -16,7 +17,6 @@ class TraktTest < ActiveSupport::TestCase
       assert_equal "http://slurm.trakt.us/images/episodes/126-5-12.54.jpg",
                     json[:poster]
   end
-
 
   test "search by tv show" do
       json = Trakt::fetch_media_info(@api_key, "Breaking+Bad+", :shows)

@@ -18,7 +18,7 @@ module Trakt
     # if "TV show", check to see if has S01E02 syntax, if so check episode specific
 
     url = determine_url(query_type, api_key, name)
-    puts "url: #{url}"
+    #puts "url: #{url}"
 
     response = HTTParty.get(url)
     json = JSON.parse(response.body)
@@ -39,8 +39,6 @@ module Trakt
 
   # load epsisode info (i.e. Breaking Bad S01E03)
   def self.load_episode(info, json)
-
-    puts "Loading episode.."
 
     show = json["show"]
     if show != nil # show
