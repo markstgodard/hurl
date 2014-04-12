@@ -465,6 +465,7 @@ function selectAndPlayMedia(m, art_url, media_id, short_name) {
   console.log("media selected" + m);
   appendMessage("media selected" + m);
   currentMediaURL = m;
+
   //var playpauseresume = document.getElementById("playpauseresume");
 
 

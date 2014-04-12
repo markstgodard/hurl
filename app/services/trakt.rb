@@ -12,6 +12,8 @@ end
 #
 module Trakt
 
+  # load Trakt API Key from config or environment
+  # variable: TRAKT_API_KEY
   def self.api_key
 
     api_key = APP_CONFIG['trakt_api_key']
@@ -19,12 +21,15 @@ module Trakt
       # not set in config, check/use environment variable
       api_key = ENV["TRAKT_API_KEY"]
 
+      # Ensure Trakt API KEY is in hurlconfig.yml OR
+      # TRAKT_API_KEY environment variable set!!!
       raise TraktMissingApiKeyError if api_key == nil or api_key.empty?
     end
     api_key
 
   end
 
+  # load information for a media file from trakt.tv
   def self.fetch_media_info(api_key, name, type)
     info = Hash.new
     # i.e. name = Flight+Club
@@ -49,6 +54,8 @@ module Trakt
   end
 
 
+  # is the request url for a specific episode (S01E02) or
+  # or just a regular show
   def self.episode?(url, json)
     url =~ /show\/episode\/summary.json/ and json != nil
   end

@@ -19,8 +19,16 @@ class Media < ActiveRecord::Base
 
   validates :name, :full_name, :media_type, presence: true
 
+  def movie?
+    media_type == :movies.to_s
+  end
+
+  def show?
+    media_type == :shows.to_s
+  end
+
   def to_s
-    "Name: #{@name} type [#{media_type}] full_name [#{@full_name}] year #{year}"
+    "Name: #{name} type [#{media_type}] full_name [#{full_name}] year #{year}"
   end
 
 end

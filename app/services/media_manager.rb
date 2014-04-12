@@ -9,10 +9,8 @@ class MediaManager
   # fetch media files from accessible directory
   # and return list of media entities
   def self.load_media_files(dir, type, server)
-
-    api_key = Trakt::api_key
-
     files = []
+
     # get the subdir from main server (i.e. TV, Movies)
     subdir = dir.split("/").reverse.first
 
@@ -24,7 +22,7 @@ class MediaManager
       # try and lookup from db first (to avoid hitting Trakt)
       media = Media.where(full_name: full_name).first
       if media == nil
-        media = create_media(file, type, full_name, api_key)
+        media = create_media(file, type, full_name, Trakt::api_key)
       end
 
       files << media
