@@ -11,12 +11,15 @@ class PlayController < ApplicationController
   # main page that serves up all movies, shows
   #
   def index
+    # default to movies if not specified
+    if :shows.to_s == params[:media_type]
+      @media = MediaManager.load_media_files(APP_CONFIG['tv_directory'], :shows, SERVER)
+      session[:media_type] = :shows.to_s
+    else
+      @media = MediaManager.load_media_files(APP_CONFIG['movies_directory'], :movies, SERVER)
+      session[:media_type] = :movies.to_s
+    end
 
-    movies = MediaManager.load_media_files(APP_CONFIG['movies_directory'], :movies, SERVER)
-    shows = MediaManager.load_media_files(APP_CONFIG['tv_directory'], :shows, SERVER)
-
-    # hack for now, will later have separate pages for Movies vs. TV shows
-    @media = movies + shows
   end
 
   #

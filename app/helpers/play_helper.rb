@@ -13,5 +13,9 @@ module PlayHelper
     idx % n == 0
   end
 
+  # drop down select for Movies or TV
+  def media_type_selected
+    session[:media_type] == "shows" ? "TV" : "Movies"
+  end
 
 end

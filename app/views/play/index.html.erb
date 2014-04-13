@@ -2,6 +2,7 @@
 
   <div class="container" >
 
+
     <div class="row">
       <div>
         <h1>Hurl <span class="fa fa-film fa-fw"></span>+<span class="fa fa-home fa-fw"></span></h1>
@@ -18,13 +19,24 @@
           <span id="playerstate">IDLE</span> <h3><span id="nowplayingname"><%= session[:now_playing_title] %></span></h3>
 
         </div>
+
       </div>
+      <br/>
       <div class="btn-group">
-        <br>
-          <button id="playpauseresume" onclick="playMedia()">Play</button>
-          <button onclick="stopMedia()">Stop</button>
-          <span id="muteText">Mute</span>
+
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <%= media_type_selected %> <span class="caret"></span>
+          </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><%= link_to "Movies", root_path(media_type: "movies") %></li>
+              <li><%= link_to "TV", root_path(media_type: "shows") %></li>
+            </ul>
+
+          <button id="playpauseresume" onclick="playMedia()" class="btn btn-default" >Play</button>
+          <button onclick="stopMedia()" class="btn btn-default" >Stop</button>
+          <span id="muteText" class="small">Mute</span>
           <input type="checkbox" onclick="muteMedia(this);">
+
       </div>
 
 

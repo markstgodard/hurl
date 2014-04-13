@@ -458,6 +458,11 @@ function decorateThumbs() {
   // set the tooltips
   $('.tip').tooltip({'placement':'bottom'});
 
+  $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+
+
 }
 
 function selectAndPlayMedia(m, art_url, media_id, short_name) {
