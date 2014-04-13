@@ -22,7 +22,7 @@ Trakt is awesome you should check it out http://trakt.tv.
  - Google Chrome browser
  - Ruby 2.0.0+
  - Rails 4.0.0
- - a simple HTTP server (i.e. I am including a simple node-based http server)
+ - Nginx
  - A [Trakt](http://trakt.tv) account (you will get an API Key that we will use to fetch images, descriptions, etc.)
  - Media (i.e. your MP4 files)
 
@@ -83,36 +83,53 @@ First step: clone the repository:
     git clone https://github.com/markstgodard/hurl.git
     cd hurl
 
+
 ### HTTP Server
 Secondly we want to configure and run a simple HTTP server to serve
-up our MP4 files.
+up our MP4 files (NGINX is better for serving video than a Rails server)
 
-Edit hurl/scripts/config.json
+We will use an NGINX proxy to Rails server and will bypass
+all requires to /media to serve up your video files
 
-####For example:
-This will serve up media from this root folder running on port 8000
 
-    {
-        "folder": "/Volumes/Data/Media",
-          "port": 8000
+Install, configure and run NGINX
+
+Change <SOME DIR> and <ROOT DIR> in example config below.
+
+### Example Nginx configuration (scripts/nginx/nginx.conf)
+
+    worker_processes  1;
+
+
+    events {
+        worker_connections  1024;
+        }
+
+    http {
+        include       mime.types;
+        default_type  application/octet-stream;
+
+        sendfile        on;
+
+        keepalive_timeout  65;
+
+        server {
+          listen       80;
+          server_name  localhost;
+
+          access_log <SOME DIR>/hurl/log/access.log;
+          error_log <SOME DIR>/hurl/log/error.log;
+
+          location /media/ {
+              root <ROOT DIR OF YOUR MEDIA FILES>;
+              autoindex on;
+            }
+
+          location / {
+              proxy_pass http://localhost:3000;
+            }
+        }
     }
-
-
-
-
-Install [node](http:node.js), install node packages (one time only) and then run the http server
-
-    > cd scripts
-
-Install node packages (one time only)
-
-    > npm install
-
-Run the server
-
-    > node server.js
-    Server running, listening on port: 8000
-
 
 
 
@@ -142,6 +159,7 @@ NOTE: You may also set your Trakt API KEY using an ENV variable
 Run the web application
 
     > cd hurl
+    > bundle install
     > rails server
 
 
