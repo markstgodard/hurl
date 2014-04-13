@@ -214,8 +214,10 @@ do a Media.delete_all, for example:
 
  - Need to cleanup UI
  - add a box at the top right to set the image of the thumbnail of Now Watching
+ - support look up of episode info by naming convention ("Name.of.Show.yyyy.mm.dd.mp4")
  - improve media lookup, less hacky / dependent on naming conventions
  - update tests to use VCR instead of hitting Trakt
+
 
 
 ## License
