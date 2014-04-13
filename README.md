@@ -89,7 +89,7 @@ Secondly we want to configure and run a simple HTTP server to serve
 up our MP4 files (NGINX is better for serving video than a Rails server)
 
 We will use an NGINX proxy to Rails server and will bypass
-all requires to /media to serve up your video files
+all requests to /media to serve up your video files
 
 
 Install, configure and run NGINX
@@ -145,9 +145,9 @@ share directory locations for "Movies" and "TV" shows
 and your Trakt Api Key (you'll need to create an account on http://trakt.tv and
 get an API key, its quick and painless)
 
-    media_http_server: http://<ip address of http server>:8000/media
-    movies_directory: /Volumes/Data/Media/Movies
-    tv_directory: /Volumes/Data/Media/TV
+    media_http_server: http://<ip address of http server>/media
+    movies_directory: /Volumes/Data/media/Movies
+    tv_directory: /Volumes/Data/media/TV
     trakt_api_key: <Trakt API Key>
 
 
