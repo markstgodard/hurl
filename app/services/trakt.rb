@@ -39,7 +39,7 @@ module Trakt
     # if "TV show", check to see if has S01E02 syntax, if so check episode specific
 
     url = determine_url(query_type, api_key, name)
-    puts "url: #{url}"
+    #puts "url: #{url}"
 
     response = HTTParty.get(url)
     json = JSON.parse(response.body)
