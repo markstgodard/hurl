@@ -50,8 +50,8 @@ For example:
       |-- Movies
           |-- Fight Club/
               |-- Fight.Club.mp4
-              |-- The Amazing Spiderman/
-                  |-- The.Amazing.Spiderman.2012.mp4
+          |-- The Amazing Spiderman/
+              |-- The.Amazing.Spiderman.2012.mp4
       |-- TV
           |-- Breaking Bad
               |-- Breaking.Bad.S01E02.mp4
