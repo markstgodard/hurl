@@ -39,13 +39,15 @@ module Trakt
     # if "TV show", check to see if has S01E02 syntax, if so check episode specific
 
     url = determine_url(query_type, api_key, name)
-    #puts "url: #{url}"
+    puts "url: #{url}"
 
     response = HTTParty.get(url)
     json = JSON.parse(response.body)
 
     if episode?(url, json)
       load_episode(info, json)
+    elsif movie?(url, json)
+      load_movie(info, json)
     else
       load_show(info, json)
     end
@@ -58,6 +60,11 @@ module Trakt
   # or just a regular show
   def self.episode?(url, json)
     url =~ /show\/episode\/summary.json/ and json != nil
+  end
+
+  # is the request url for a specific episode movie
+  def self.movie?(url, json)
+    url =~ /movie\/summary.json/ and json != nil
   end
 
   # load epsisode info (i.e. Breaking Bad S01E03)
@@ -75,7 +82,21 @@ module Trakt
     load_episode_info(info, json["episode"])
   end
 
-  # load movie, show info
+  # load specific movie
+  def self.load_movie(info, json)
+    if json != nil and json.size > 0
+
+      load_image_info(info, json["images"])
+      load_genre_info(info, json["genres"])
+      load_ratings_info(info, json["ratings"])
+
+      info[:year] = json["year"]
+      info[:runtime] = json["runtime"]
+      info[:overview] = json["overview"]
+    end
+  end
+
+  # load generic show info
   def self.load_show(info, json)
     # we are going to use the first hit
     if json != nil and json.size > 0
@@ -150,16 +171,25 @@ module Trakt
 
       # Breaking+Bad+S05E12+
       hyphen_name = name.gsub!(/\+/,"-").gsub!(last_part,"").gsub!("--","").downcase
-
       "http://api.trakt.tv/show/episode/summary.json/#{api_key}/#{hyphen_name}/#{s}/#{e}"
 
     else
-      "http://api.trakt.tv/search/#{query_type}.json/#{api_key}?query=#{name}"
+
+      # check if is "movie" and has name "name.of.movie.yyyy.mp4"
+      if query_type == "movies" and last_part =~ /^\d{4}$/
+        hyphen_name = name.gsub!(/\+/,"-").gsub!(last_part + "-", last_part).downcase
+        "http://api.trakt.tv/movie/summary.json/#{api_key}/#{hyphen_name}"
+      else
+        "http://api.trakt.tv/search/#{query_type}.json/#{api_key}?query=#{name}"
+      end
     end
 
 
   end
 
+  def self.hyphenated_name(name, last_part)
+    hyphen_name = name.gsub!(/\+/,"-").gsub!(last_part,"").gsub!("--","").downcase
+  end
 
 
 end

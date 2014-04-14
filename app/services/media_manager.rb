@@ -68,7 +68,7 @@ class MediaManager
   def self.query_name(file)
     clean = ""
     file.split(".").each do |p|
-      if p.downcase =~ /mp4$/ or is_number?(p)
+      if p.downcase =~ /mp4$/ 
         # excluding
       else
         p.gsub!(/ /, '+')
