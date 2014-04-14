@@ -50,6 +50,8 @@ For example:
       |-- Movies
           |-- Fight Club/
               |-- Fight.Club.mp4
+              |-- The Amazing Spiderman/
+                  |-- The.Amazing.Spiderman.2012.mp4
       |-- TV
           |-- Breaking Bad
               |-- Breaking.Bad.S01E02.mp4
@@ -64,6 +66,11 @@ Movie names examples:
 
 - Fight Club.mp4
 - Fight.Club.mp4
+
+or also can include the year to get better matches
+
+- Fight.Club.1999.mp4
+- The.Amazing.Spiderman.2012.mp4
 
 TV Shows / Episodes examples:
 
