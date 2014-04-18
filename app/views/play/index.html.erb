@@ -16,12 +16,15 @@
           <button onclick="launchApp()"><span class="glyphicon glyphicon-play"></span></button>
           <button onclick="stopApp()"><span class="glyphicon glyphicon-stop"></span></button>
 
-          <span id="playerstate">IDLE</span> <h3><span id="nowplayingname"><%= session[:now_playing_title] %></span></h3>
+          <span id="playerstate">IDLE</span>
+          <h3><span id="nowplayingname"><%= session[:now_playing_title] %></span></h3>
+
 
         </div>
 
       </div>
       <br/>
+
       <div class="btn-group">
 
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -32,10 +35,11 @@
               <li><%= link_to "TV", root_path(media_type: "shows") %></li>
             </ul>
 
-          <button id="playpauseresume" onclick="playMedia()" class="btn btn-default" >Play</button>
-          <button onclick="stopMedia()" class="btn btn-default" >Stop</button>
-          <span id="muteText" class="small">Mute</span>
-          <input type="checkbox" onclick="muteMedia(this);">
+
+            <button id="playpauseresume" onclick="playMedia()" class="btn btn-default" style="<%= playing_visibility %>">Play</button>
+            <button id="stop" onclick="stopMedia()" class="btn btn-default" style="<%= playing_visibility %>">Stop</button>
+            <span id="muteText" class="small" style="<%= playing_visibility_span %>">Mute</span>
+            <input id="muteButton" type="checkbox" onclick="muteMedia(this);" style="<%= playing_visibility_span %>">
 
       </div>
 

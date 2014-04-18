@@ -18,4 +18,21 @@ module PlayHelper
     session[:media_type] == "shows" ? "TV" : "Movies"
   end
 
+  def playing_visibility
+    if session[:now_playing_title] != nil
+      "display:block;"
+    else
+      "display:none;"
+    end
+  end
+
+  def playing_visibility_span
+    if session[:now_playing_title] != nil
+      "visibility:visible;"
+    else
+      "visibility:hidden;"
+    end
+  end
+
+
 end

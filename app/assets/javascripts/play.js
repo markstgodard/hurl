@@ -192,9 +192,15 @@ function loadMedia(mediaURL) {
   request.autoplay = true;
   request.currentTime = 0;
 
+
   session.loadMedia(request,
     onMediaDiscovered.bind(this, 'loadMedia'),
     onMediaError);
+
+  document.getElementById("playpauseresume").style.display="block"; // or none to not display
+  document.getElementById("stop").style.display="block"; // or none to not display
+  document.getElementById("muteText").style.visibility="visible";
+  document.getElementById("muteButton").style.visibility="visible";
 
 }
 
@@ -326,6 +332,12 @@ function stopMedia() {
 
   var playpauseresume = document.getElementById("playpauseresume");
   playpauseresume.innerHTML = 'Play';
+
+  document.getElementById("playpauseresume").style.display="none"; // or none to not display
+  document.getElementById("stop").style.display="none"; // or none to not display
+  document.getElementById("muteText").style.visibility="hidden";
+  document.getElementById("muteButton").style.visibility="hidden";
+
 
 
   var v = document.getElementById("nowplayingname");
