@@ -57,7 +57,7 @@ class MediaManager
   # i.e. BreakingBad/Breaking.Bad.S01E01.mp4 ->
   #      Breaking Bad S01E01
   def self.friendly_name(file)
-    short_name = file.split('/').reverse.first
+    short_name = file.split('/').last
     short_name.slice!(".mp4")
     short_name.gsub!(/\./, ' ')
     short_name
