@@ -12,7 +12,7 @@ class MediaManager
     files = []
 
     # get the subdir from main server (i.e. TV, Movies)
-    subdir = dir.split("/").reverse.first
+    subdir = dir.split("/").last
 
     # list of files
     load_media(dir).sort.each { |file|
@@ -68,7 +68,7 @@ class MediaManager
   def self.query_name(file)
     clean = ""
     file.split(".").each do |p|
-      if p.downcase =~ /mp4$/ 
+      if p.downcase =~ /mp4$/
         # excluding
       else
         p.gsub!(/ /, '+')
