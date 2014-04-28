@@ -347,6 +347,11 @@ CastPlayer.prototype.loadMedia = function(mediaIndex) {
 
   document.getElementById("media_title").innerHTML = this.mediaContents[this.currentMediaIndex]['title'];
   document.getElementById("media_subtitle").innerHTML = this.mediaContents[this.currentMediaIndex]['subtitle'];
+
+  // MJS
+  document.getElementById("media_rating").innerHTML = '<small><span class="fa fa-heart"></span> ' + this.mediaContents[this.currentMediaIndex]['rating'] + 'm </small>';
+  document.getElementById("media_runtime").innerHTML =  '<small><span class="fa fa-clock-o"></span> ' + this.mediaContents[this.currentMediaIndex]['runtime'] + 'm </small>';
+
   document.getElementById("media_desc").innerHTML = this.mediaContents[this.currentMediaIndex]['description'];
 
 };
@@ -865,6 +870,12 @@ CastPlayer.prototype.selectMediaUpdateUI = function(mediaIndex) {
   document.getElementById("progress").style.width = '0px';
   document.getElementById("media_title").innerHTML = this.mediaContents[mediaIndex]['title'];
   document.getElementById("media_subtitle").innerHTML = this.mediaContents[mediaIndex]['subtitle'];
+
+  // MJS
+  document.getElementById("media_rating").innerHTML = '<small><span class="fa fa-heart"></span> ' + this.mediaContents[this.currentMediaIndex]['rating'] + 'm </small>';
+  document.getElementById("media_runtime").innerHTML =  '<small><span class="fa fa-clock-o"></span> ' + this.mediaContents[this.currentMediaIndex]['runtime'] + 'm </small>';
+
+
   document.getElementById("media_desc").innerHTML = this.mediaContents[mediaIndex]['description'];
 };
 
@@ -875,6 +886,12 @@ CastPlayer.prototype.initializeUI = function() {
   // set initial values for title, subtitle, and description
   document.getElementById("media_title").innerHTML = this.mediaContents[0]['title'];
   document.getElementById("media_subtitle").innerHTML = this.mediaContents[this.currentMediaIndex]['subtitle'];
+
+  // MJS
+  document.getElementById("media_rating").innerHTML = '<small><span class="fa fa-heart"></span> ' + this.mediaContents[this.currentMediaIndex]['rating'] + 'm </small>';
+  document.getElementById("media_runtime").innerHTML =  '<small><span class="fa fa-clock-o"></span> ' + this.mediaContents[this.currentMediaIndex]['runtime'] + 'm </small>';
+
+
   document.getElementById("media_desc").innerHTML = this.mediaContents[this.currentMediaIndex]['description'];
 
   // add event handlers to UI components
@@ -1012,10 +1029,14 @@ CastPlayer.prototype.addVideoThumbs = function() {
     newdiv.setAttribute('id',divIdName);
     newdiv.setAttribute('class','thumb');
     newdiv.innerHTML = '<img src="' + MEDIA_SOURCE_ROOT + this.mediaContents[i]['thumb']
-          + '" class="thumbnail">' + '<dl><dt class="fa" style="font-size: 12px; font-family: "Roboto", "OpenSans";"> <strong>'+this.mediaContents[i]['title']
-          +' </strong></dt> '
-          + '<dd><small><span class="fa fa-clock-o"></span> ' + this.mediaContents[i]['runtime'] + 'm </small>'
-          + '<small> <span class="fa fa-heart"></span> ' + this.mediaContents[i]['rating'] + '% </small>  </dd>'
+          + '" class="thumbnail">'
+          + '<dl><dt class="fa" style="font-size: 14px; font-family: "Roboto", "OpenSans";"> '
+    //      + '<strong>'
+          + this.mediaContents[i]['title']
+    //      +' </strong>'
+          + '</dt> '
+          // + '<dd><small><span class="fa fa-clock-o"></span> ' + this.mediaContents[i]['runtime'] + 'm </small>'
+          // + '<small> <span class="fa fa-heart"></span> ' + this.mediaContents[i]['rating'] + '% </small>  </dd>'
           '</dl>';
 
              //

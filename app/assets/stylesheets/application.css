@@ -170,7 +170,7 @@ body {
   float:left;
   margin:0px 10px 0px 0px;
   padding:0px;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   font-family: 'Roboto', "Open Sans", "Verdana", Georgia, Serif;
 }
@@ -182,6 +182,23 @@ body {
   font-size: 18px;
   font-family: 'Roboto', "Open Sans", "Verdana", Georgia, Serif;
 }
+
+#media_runtime {
+  float:left;
+  margin:13px 0px 0px 30px;
+  padding:0px;
+  font-size: 18px;
+  font-family: 'Roboto', "Open Sans", "Verdana", Georgia, Serif;
+}
+
+#media_rating {
+  float:left;
+  margin:13px 0px 0px 30px;
+  padding:0px;
+  font-size: 18px;
+  font-family: 'Roboto', "Open Sans", "Verdana", Georgia, Serif;
+}
+
 
 #media_desc {
   float:left;

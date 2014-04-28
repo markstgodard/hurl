@@ -41,8 +41,8 @@ class Media < ActiveRecord::Base
     h["thumb"] = poster
     h["art"] = art
 
-    t = name[0..33]
-    t = t + ".." if t.size > 33
+    t = name[0..32]
+    t = t + ".." if t.size > 32
     h["title"] = t
 
     h["rating"] = rating
