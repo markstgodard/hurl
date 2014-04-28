@@ -4,7 +4,7 @@
 ## About
 
 
-##NOTE: currently re-doing cleaning up UI... reworking based on Google sample app https://github.com/googlecast/CastVideos-chrome
+###NOTE: currently re-doing cleaning up UI... reworking based on Google sample app https://github.com/googlecast/CastVideos-chrome
 
 
 
@@ -212,7 +212,7 @@ do a Media.delete_all, for example:
 
 ## License
 
-I based the chromecast / javascript off of the Google CastHelloVideo-chrome
-sample application: https://github.com/googlecast/CastHelloVideo-chrome
+I based the chromecast / javascript off of the Google CastVideo-chrome
+sample application: https://github.com/googlecast/CastVideos-chrome
 which is under the Apache 2.0 License. This project is also under the Apache 2.0
 license.
