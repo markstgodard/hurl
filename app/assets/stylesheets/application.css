@@ -88,6 +88,12 @@ body {
   margin: 10px 25px 0px 25px;
 }
 
+#thumb_details {
+  font-family: "Roboto", "OpenSans";
+  font-weigth: bold;
+  font-size: 5px;
+}
+
 .header_tab {
   float:left;
   height: 31px;

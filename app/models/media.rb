@@ -47,8 +47,13 @@ class Media < ActiveRecord::Base
     h["art"] = art
 
     t = name[0..33]
-    t = t + ".." if t.size > 33    
+    t = t + ".." if t.size > 33
     h["title"] = t
+
+
+    h["rating"] = rating
+    h["runtime"] = runtime
+
 
     h
   end

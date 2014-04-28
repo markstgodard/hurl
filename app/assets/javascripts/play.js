@@ -1011,7 +1011,21 @@ CastPlayer.prototype.addVideoThumbs = function() {
     divIdName = 'thumb'+i+'Div';
     newdiv.setAttribute('id',divIdName);
     newdiv.setAttribute('class','thumb');
-    newdiv.innerHTML = '<img src="' + MEDIA_SOURCE_ROOT + this.mediaContents[i]['thumb'] + '" class="thumbnail">';
+    newdiv.innerHTML = '<img src="' + MEDIA_SOURCE_ROOT + this.mediaContents[i]['thumb']
+          + '" class="thumbnail">' + '<dl><dt class="fa" style="font-size: 12px; font-family: "Roboto", "OpenSans";"> <strong>'+this.mediaContents[i]['title']
+          +' </strong></dt> '
+          + '<dd><small><span class="fa fa-clock-o"></span> ' + this.mediaContents[i]['runtime'] + 'm </small>'
+          + '<small> <span class="fa fa-heart"></span> ' + this.mediaContents[i]['rating'] + '% </small>  </dd>'
+          '</dl>';
+
+             //
+            //  <dl>
+            //   <dt><%= media.name %></dt>
+            //   <dd><%= media.year %> (<%= media.genre %>)</dd>
+            //   <dd><small> <span class="glyphicon glyphicon-time"></span> <%= media.runtime %>m </small>
+            //       <small> <span class="glyphicon glyphicon-heart"></span> <%= media.rating %>% </small>  </dd>
+            //  </dl>
+
     newdiv.addEventListener('click', this.selectMedia.bind(this, i));
     ni.appendChild(newdiv);
   }
