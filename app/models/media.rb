@@ -40,12 +40,15 @@ class Media < ActiveRecord::Base
   def custom_json
     h = Hash.new
 
-    h["description"] = overview[0..425]  # add "..." if over certain size
+    h["description"] = overview # add "..." if over certain size
     h["sources"] = [full_name]
     h["subtitle"] = "(#{year}) #{genre}"
     h["thumb"] = poster
     h["art"] = art
-    h["title"] = name[0..33] # add ".." if over max size
+
+    t = name[0..33]
+    t = t + ".." if t.size > 33    
+    h["title"] = t
 
     h
   end

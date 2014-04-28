@@ -1021,11 +1021,12 @@ var mediaJSON = [];
 /**
  * hardcoded media json objects
  */
-$.getJSON('http://localhost:3000/play/movies.json', function(data) {
+$.getJSON('/play/movies.json', function(data) {
     // you can access your data here in the "data" variable passed to this success handler
     console.log(data);
     mediaJSON = data;
 });
+
 
 
 //
