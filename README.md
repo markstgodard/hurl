@@ -3,6 +3,11 @@
 
 ## About
 
+
+##NOTE: currently re-doing cleaning up UI... reworking based on Google sample app https://github.com/googlecast/CastVideos-chrome
+
+
+
 Hurl is a simple and opinionated web-based media server for playing MP4 media files on
 a Google [Chromecast](http:www.google.com/chromecast).
 
@@ -173,29 +178,7 @@ Run the web application
 ## Usage
 
 Now that you are up and running goto: http://localhost:3000
-
-First thing you will want to click the top play button to connect to
-your Chromecast. Once you click the top Play button it will
-prompt your Chrome browser to select and connect to your chromecast.
-You can also at any time click to the top Stop button to disconnect
-from the chromecast.
-
-You need to do this before selecting a move to play.
-
-![Chrome cast buttons](controls.jpg "Chromecast controls")
-
-
-After you are connected to your Chromecast, you should see a list of
-movies and shows below. Each movie / show will have a Thumbnail
-image, overview information, rating, year, genre, etc.
-
-Each thumbnail will have a Play button on the top left corner.
-
-For example:
-
-![thumbnail](thumbnail.jpg "Thumbnail info")
-
-
+. . . TODO UPDATE
 
 
 ### Notes
