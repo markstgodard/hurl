@@ -1,6 +1,8 @@
 Hurl::Application.routes.draw do
   get "play/index"
 
+  get "play/movies"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,6 +10,8 @@ Hurl::Application.routes.draw do
   root 'play#index'
 
   post 'play/:id' => 'play#play'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

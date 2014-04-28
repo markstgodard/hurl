@@ -22,6 +22,35 @@ class PlayController < ApplicationController
 
   end
 
+
+  def movies
+
+    movies = MediaManager.load_media_files(APP_CONFIG['movies_directory'], :movies, SERVER)
+    tv = MediaManager.load_media_files(APP_CONFIG['tv_directory'], :shows, SERVER)
+
+    all_files = movies + tv
+
+    movies = []
+
+    all_files.each do |m|
+      movies << m.custom_json
+    end
+
+    content = Hash.new
+    content["name"] = "Movies"
+    content["videos"] = movies
+
+
+    all_media = Hash.new
+    all_media["categories"] = [content]
+
+    puts all_media.to_json
+
+    respond_to do |format|
+      format.json { render :json => all_media.to_json }
+    end
+  end
+
   #
   # action when media is played, this just sets the
   # background of the show being played or clears out

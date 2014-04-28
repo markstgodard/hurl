@@ -1,101 +1,53 @@
 
-
-  <div class="container" >
-
-
-    <div class="row">
-      <div>
-        <h1>Hurl <span class="fa fa-film fa-fw"></span>+<span class="fa fa-home fa-fw"></span></h1>
+      <div id="top_header">
+        <div id="logo">
+          <h1>Hurl <span class="fa fa-film fa-fw"></span>+<span class="fa fa-home fa-fw"></span></h1>
+        </div>
       </div>
-    </div>
-
-    <div class="row">
-      <div>
-        <div class="btn-group">
-          <img src="/assets/cast_icon_idle.png" id="casticon" width="30">
-          <button onclick="launchApp()"><span class="glyphicon glyphicon-play"></span></button>
-          <button onclick="stopApp()"><span class="glyphicon glyphicon-stop"></span></button>
-
-          <span id="playerstate">IDLE</span>
-          <h3><span id="nowplayingname"><%= session[:now_playing_title] %></span></h3>
-
-
+      <div id="main_video">
+        <div class="imageSub"> <!-- Put Your Image Width -->
+           <div class="blackbg" id="playerstatebg">IDLE</div>
+           <div class=label id="playerstate">IDLE</div>
+           <img src="http://slurm.trakt.us/images/poster-dark.jpg" id="video_image">
+           <div id="video_image_overlay"></div>
+           <video id="video_element">
+           </video>
         </div>
 
-      </div>
-      <br/>
-
-      <div class="btn-group">
-
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <%= media_type_selected %> <span class="caret"></span>
-          </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><%= link_to "Movies", root_path(media_type: "movies") %></li>
-              <li><%= link_to "TV", root_path(media_type: "shows") %></li>
-            </ul>
-
-
-            <button id="playpauseresume" onclick="playMedia()" class="btn btn-default" style="<%= playing_visibility %>">Play</button>
-            <button id="stop" onclick="stopMedia()" class="btn btn-default" style="<%= playing_visibility %>">Stop</button>
-            <span id="muteText" class="small" style="<%= playing_visibility_span %>">Mute</span>
-            <input id="muteButton" type="checkbox" onclick="muteMedia(this);" style="<%= playing_visibility_span %>">
-
-      </div>
-
-
-      <div>
-        <div style="margin:10px;">
-          <input id="progress" type="range" min="1" max="100" value="1" step="1" onmouseup="seekMedia(this.value);">
-          <span id="duration" style="visibility: hidden"></span>
-          <div id="progress_tick" style="visibility: hidden"></div>
+        <div id="media_control">
+           <div id="play"></div>
+           <div id="pause"></div>
+           <div id="progress_bg"></div>
+           <div id="progress"></div>
+           <div id="progress_indicator"></div>
+           <div id="fullscreen_expand"></div>
+           <div id="fullscreen_collapse"></div>
+           <div id="casticonactive"></div>
+           <div id="casticonidle"></div>
+           <div id="audio_bg"></div>
+           <div id="audio_bg_track"></div>
+           <div id="audio_indicator"></div>
+           <div id="audio_bg_level"></div>
+           <div id="audio_on"></div>
+           <div id="audio_off"></div>
+           <div id="duration">00:00:00</div>
         </div>
-
+      </div>
+      <div id="media_info">
+        <div id="media_title">
+        </div>
+        <div id="media_subtitle">
+        </div>
+        <div id="media_desc">
+        </div>
       </div>
 
-    </div>
-
-
-    <% @media.each_with_index do |media, idx| %>
-
-      <% if nth_row(idx, 3) %>
-        <div class="row"> <!-- begin row -->
-      <% end %>
-
-          <div class="col-md-4 thumbnail <%= blur(idx) %>">
-
-            <button type="button" class="btn btn-default"
-              onClick="selectAndPlayMedia('<%= media.full_name %>', '<%= media.art %>', '<%= media.id %>', '<%= media.name %>')"><i class="fa fa-youtube-play fa-fw"></i></button>
-
-            <%= image_tag("#{media.poster}", size: "140x140", title: "Overview: #{media.overview}", class: "tip") %>
-
-            <dl>
-              <dt><%= media.name %></dt>
-              <dd><%= media.year %> (<%= media.genre %>)</dd>
-              <dd><small> <span class="glyphicon glyphicon-time"></span> <%= media.runtime %>m </small>
-                  <small> <span class="glyphicon glyphicon-heart"></span> <%= media.rating %>% </small>  </dd>
-
-            </dl>
-
-          </div>
-
-      <% if nth_row(idx + 1, 3) %>
-        </div> <!-- end row -->
-      <% end %>
-
-    <% end %>
-
-
-
-  <div>
-    <div>
-      <br>
-
-      <div style="margin:10px;visibility: hidden">
-        <textarea rows="20" cols="70" id="debugmessage">
-        </textarea>
+      <div id="carousel">
       </div>
 
 
-    </div>
-  </div>
+
+
+<script type="text/javascript">
+  var CastPlayer = new CastPlayer();
+</script>
