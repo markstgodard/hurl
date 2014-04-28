@@ -71,7 +71,7 @@ var CastPlayer = function() {
   // @type {Object} a chrome.cast.media.Media object
   this.currentMediaSession = null;
   // @type {Number} volume
-  this.currentVolume = 0.5;
+  this.currentVolume = 0.9;
   // @type {Boolean} A flag for autoplay after load
   this.autoplay = true;
   // @type {string} a chrome.cast.Session object
@@ -1032,26 +1032,12 @@ CastPlayer.prototype.addVideoThumbs = function() {
 }
 
 var mediaJSON = [];
-/**
- * hardcoded media json objects
- */
-$.getJSON('/play/movies.json', function(data) {
-    // you can access your data here in the "data" variable passed to this success handler
+
+
+$.getJSON('/play/media.json', function(data) {
     console.log(data);
     mediaJSON = data;
 });
-
-
-
-//
-//  var mediaJSON = $.ajax({
-//     type: "GET",
-//     url: "/play/movies.json",
-//     dataType: "json"
-//   });
-//
-// alert(mediaJSON.responseText;
-// console.log(mediaJSON.responseText);
 
 
 // var mediaJSON = { "categories" : [ { "name" : "Movies",
