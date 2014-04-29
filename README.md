@@ -3,11 +3,6 @@
 
 ## About
 
-
-###NOTE: currently re-doing cleaning up UI... reworking based on Google sample app https://github.com/googlecast/CastVideos-chrome
-
-
-
 Hurl is a simple and opinionated web-based media server for playing MP4 media files on
 a Google [Chromecast](http:www.google.com/chromecast).
 
@@ -15,8 +10,8 @@ Hurl is basically a web application that uses the chromecast javascript sender A
 - connect/disconnect to/from a Google chromecast
 - play, pause and stop mp4 media files
 
-I based the chromecast sender javascript off of the sample CastHelloVideo-chrome app, so full credit to:
-https://github.com/googlecast/CastHelloVideo-chrome
+I based this off of the CastVideos-chrome example app, so full credit to:
+https://github.com/googlecast/CastVideos-chrome
 
 I also am using [Trakt](http://trakt.tv) for serving up images, thumbnails, descriptions, etc.
 Trakt is awesome you should check it out http://trakt.tv.
@@ -177,8 +172,13 @@ Run the web application
 
 ## Usage
 
-Now that you are up and running goto: http://localhost:3000
-. . . TODO UPDATE
+Fire up Chrome and goto http://localhost:3000 or http://localhost
+
+There should be a grid of media thumbnails,
+click one and go to the top of the screen to
+use the media player (connect to Chromecast, play/pause, etc.)
+
+
 
 
 ### Notes
@@ -202,11 +202,11 @@ do a Media.delete_all, for example:
 
 ### TODOs
 
- - Need to cleanup UI
- - add a box at the top right to set the image of the thumbnail of Now Watching
- - support look up of episode info by naming convention ("Name.of.Show.yyyy.mm.dd.mp4")
- - improve media lookup, less hacky / dependent on naming conventions
- - update tests to use VCR instead of hitting Trakt
+ - [ ] Have link to group Movies vs. Shows (i.e. a link maybe so filter based on Movies or TV Shows etc)
+ - [ ] Sorting (i.e. sort by name or file date)
+ - [ ] support look up of episode info by naming convention ("Name.of.Show.yyyy.mm.dd.mp4")
+ - [ ] improve media lookup, less hacky / dependent on naming conventions
+ - [ ] update tests to use VCR instead of hitting Trakt
 
 
 
