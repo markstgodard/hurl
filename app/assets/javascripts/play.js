@@ -349,7 +349,7 @@ CastPlayer.prototype.loadMedia = function(mediaIndex) {
   document.getElementById("media_subtitle").innerHTML = this.mediaContents[this.currentMediaIndex]['subtitle'];
 
   // MJS
-  document.getElementById("media_rating").innerHTML = '<small><span class="fa fa-heart"></span> ' + this.mediaContents[this.currentMediaIndex]['rating'] + 'm </small>';
+  document.getElementById("media_rating").innerHTML = '<small><span class="fa fa-heart"></span> ' + this.mediaContents[this.currentMediaIndex]['rating'] + '% </small>';
   document.getElementById("media_runtime").innerHTML =  '<small><span class="fa fa-clock-o"></span> ' + this.mediaContents[this.currentMediaIndex]['runtime'] + 'm </small>';
 
   document.getElementById("media_desc").innerHTML = this.mediaContents[this.currentMediaIndex]['description'];
@@ -872,7 +872,7 @@ CastPlayer.prototype.selectMediaUpdateUI = function(mediaIndex) {
   document.getElementById("media_subtitle").innerHTML = this.mediaContents[mediaIndex]['subtitle'];
 
   // MJS
-  document.getElementById("media_rating").innerHTML = '<small><span class="fa fa-heart"></span> ' + this.mediaContents[this.currentMediaIndex]['rating'] + 'm </small>';
+  document.getElementById("media_rating").innerHTML = '<small><span class="fa fa-heart"></span> ' + this.mediaContents[this.currentMediaIndex]['rating'] + '% </small>';
   document.getElementById("media_runtime").innerHTML =  '<small><span class="fa fa-clock-o"></span> ' + this.mediaContents[this.currentMediaIndex]['runtime'] + 'm </small>';
 
 
@@ -888,7 +888,7 @@ CastPlayer.prototype.initializeUI = function() {
   document.getElementById("media_subtitle").innerHTML = this.mediaContents[this.currentMediaIndex]['subtitle'];
 
   // MJS
-  document.getElementById("media_rating").innerHTML = '<small><span class="fa fa-heart"></span> ' + this.mediaContents[this.currentMediaIndex]['rating'] + 'm </small>';
+  document.getElementById("media_rating").innerHTML = '<small><span class="fa fa-heart"></span> ' + this.mediaContents[this.currentMediaIndex]['rating'] + '% </small>';
   document.getElementById("media_runtime").innerHTML =  '<small><span class="fa fa-clock-o"></span> ' + this.mediaContents[this.currentMediaIndex]['runtime'] + 'm </small>';
 
 
