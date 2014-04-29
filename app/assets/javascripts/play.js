@@ -218,6 +218,13 @@ CastPlayer.prototype.sessionUpdateListener = function(isAlive) {
   }
 };
 
+/**
+ * MJS
+ */
+function scrollToAnchor(aid){
+    var aTag = $("a[name='"+ aid +"']");
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+}
 
 /**
  * Select a media content
@@ -225,6 +232,10 @@ CastPlayer.prototype.sessionUpdateListener = function(isAlive) {
  */
 CastPlayer.prototype.selectMedia = function(mediaIndex) {
   console.log("media selected" + mediaIndex);
+
+
+  // scroll to top
+  scrollToAnchor('link_top');
 
   this.currentMediaIndex = mediaIndex;
   // reset progress bar

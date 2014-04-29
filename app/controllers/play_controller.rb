@@ -15,8 +15,10 @@ class PlayController < ApplicationController
 
     movies = MediaManager.load_media_files(APP_CONFIG['movies_directory'], :movies, SERVER)
     tv = MediaManager.load_media_files(APP_CONFIG['tv_directory'], :shows, SERVER)
-
+    
     media = hash_for(movies + tv)
+
+    flash[:notice] = "No media found" if media.empty?
 
     respond_to do |format|
       format.json { render :json => media.to_json }

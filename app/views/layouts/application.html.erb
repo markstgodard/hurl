@@ -12,6 +12,11 @@
 </head>
 <body>
 
+<% if flash[:notice] -%>
+  <div class = "flash_alert"><%= flash[:notice] %></div>
+<% end %>
+
+
 <%= yield %>
 
 </body>
