@@ -5,7 +5,7 @@ module Configurable
 
     # optionally add more from ENV
     more = ENV[setting.to_s.upcase] != nil ? ENV[setting.to_s.upcase] : ""
-    config << more
+    config << " " + more
 
     config.split(" ")
 

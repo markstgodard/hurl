@@ -16,7 +16,7 @@ class MediaManagerTest < ActiveSupport::TestCase
   test "friendly name" do
     assert_equal "Breaking Bad S01E01", MediaManager.friendly_name("BreakingBad/Breaking.Bad.S01E01.mp4")
   end
-\
+
   test "friendly name that excludes certain words" do
     assert_equal "House of Cards 2013 S02E05", MediaManager.friendly_name("House.of.Cards.2013.S02E05.SomeUnwantedToken.SomeOtherUnwantedToken.mp4")
   end
