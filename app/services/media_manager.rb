@@ -5,6 +5,10 @@
 # including names, thumbnail images, etc.
 #
 class MediaManager
+  extend Configurable
+
+  # tokens to exclude when searching or displaying the media name
+  CLEAN_TOKEN_LIST = configure :clean_token_list
 
   # fetch media files from accessible directory
   # and return list of media entities
@@ -60,27 +64,35 @@ class MediaManager
     short_name = file.split('/').last
     short_name.slice!(".mp4")
     short_name.gsub!(/\./, ' ')
-    short_name
+
+    # remove specific tokens from name
+    (short_name.split(" ") - CLEAN_TOKEN_LIST).join(" ")
   end
 
   # convert a file name to a queryable name
   # i.e. Breaking.Bad.mp4 => Breaking+Bad
   def self.query_name(file)
-    clean = ""
-    file.split(".").each do |p|
+    query = ""
+    cleansed = (file.split(".") - CLEAN_TOKEN_LIST).join(" ")
+
+
+    cleansed.split(" ").each do |p|
       if p.downcase =~ /mp4$/
         # excluding
       else
         p.gsub!(/ /, '+')
-        clean << p + "+"
+        query << p + "+"
       end
     end
-    clean
+    query
   end
 
   # seriously, is this a number
   def self.is_number?(val)
     true if Float(val) rescue false
   end
+
+
+
 
 end

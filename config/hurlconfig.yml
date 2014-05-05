@@ -3,6 +3,7 @@ defaults: &defaults
   movies_directory: /Volumes/Data/media/Movies
   tv_directory: /Volumes/Data/media/TV
   trakt_api_key: <Trakt API KEY>
+  clean_token_list: SomeUnwantedToken SomeOtherUnwantedToken
 
 development:
   <<: *defaults
