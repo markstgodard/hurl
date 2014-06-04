@@ -164,7 +164,7 @@ module Trakt
     # i.e. S02E04
     #puts "checking if this is a Season/Episode format: #{last_part}"
 
-    match = last_part.scan(/S(\d+)E(\d+)/)
+    match = last_part.upcase.scan(/S(\d+)E(\d+)/)
     if match != nil and match.size == 1 and match[0].size == 2
       s = match[0][0].to_i
       e = match[0][1].to_i
