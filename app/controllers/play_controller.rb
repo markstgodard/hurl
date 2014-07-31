@@ -15,7 +15,7 @@ class PlayController < ApplicationController
 
     movies = MediaManager.load_media_files(APP_CONFIG['movies_directory'], :movies, SERVER)
     tv = MediaManager.load_media_files(APP_CONFIG['tv_directory'], :shows, SERVER)
-    
+
     media = hash_for(movies + tv)
 
     flash[:notice] = "No media found" if media.empty?
@@ -28,6 +28,7 @@ class PlayController < ApplicationController
 
   private
 
+  # generate a hash for media files (chromecast json format) 
   def hash_for(all_files)
     media = Hash.new
     if all_files.size > 0
