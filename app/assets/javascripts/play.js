@@ -1029,7 +1029,21 @@ CastPlayer.prototype.startProgressTimer = function() {
  * Add video thumbnails div's to UI for media JSON contents
  */
 CastPlayer.prototype.addVideoThumbs = function() {
+
+$.ajaxSetup({
+  async: false
+});
+
+$.getJSON('/play/media.json', function(data) {
+    mediaJSON = data;
+});
+
+$.ajaxSetup({
+  async: true 
+});
+
   this.mediaContents = mediaJSON['categories'][0]['videos'];
+
   var ni = document.getElementById('carousel');
   var newdiv = null;
   var newdivBG = null;
@@ -1066,10 +1080,10 @@ CastPlayer.prototype.addVideoThumbs = function() {
 var mediaJSON = [];
 
 
-$.getJSON('/play/media.json', function(data) {
-    console.log(data);
-    mediaJSON = data;
-});
+//$.getJSON('/play/media.json', function(data) {
+//    console.log(data);
+  //  mediaJSON = data;
+//});
 
 
 // var mediaJSON = { "categories" : [ { "name" : "Movies",
