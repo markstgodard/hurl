@@ -51,5 +51,14 @@ class Media < ActiveRecord::Base
     h
   end
 
+  # generate a hash for a list media entities 
+  def self.hash_for(media_files)
+    media = Hash.new
+    if media_files.size > 0
+      content = { name: "media", videos: media_files.map(&:json) }
+      media["categories"] = [ content ]
+    end
+    media
+  end
 
 end

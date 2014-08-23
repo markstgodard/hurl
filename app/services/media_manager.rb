@@ -12,14 +12,14 @@ class MediaManager
 
   # fetch media files from accessible directory
   # and return list of media entities
-  def self.load_media_files(dir, type, server)
+  def self.load_media(dir, type, server)
     files = []
 
     # get the subdir from main server (i.e. TV, Movies)
     subdir = dir.split("/").last
 
     # list of files
-    load_media(dir).sort.each { |file|
+    load_media_from(dir).sort.each { |file|
       file.slice! (dir + '/')
       full_name = "#{server}/#{subdir}/#{file}"
 
@@ -35,9 +35,9 @@ class MediaManager
   end
 
 
-  # get list of media
-  def self.load_media(dir)
-  	Dir.glob("#{dir}/**/*").select { |file|
+  # get list of media from a dir structure
+  def self.load_media_from(dir)
+    Dir.glob("#{dir}/**/*").select { |file|
       #File.file?(file) and file.downcase =~ /(mp4|mp3)$/
       File.file?(file) and file.downcase =~ /mp4$/
     }
