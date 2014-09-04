@@ -1,4 +1,3 @@
-
 #
 # Main controller for serving up all media (movies, shows)
 #
@@ -12,7 +11,7 @@ class PlayController < ApplicationController
   def index
   end
 
-  # fetch all media (movies, tv shows)
+  # fetch media info for movies and tv shows
   def media
 
     movies = MediaManager.load_media(MOVIES_DIR, :movies, SERVER)
