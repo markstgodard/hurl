@@ -13,7 +13,6 @@ class PlayController < ApplicationController
 
   # fetch media info for movies and tv shows
   def media
-
     movies = MediaManager.load_media(MOVIES_DIR, :movies, SERVER)
     tv = MediaManager.load_media(TV_DIR, :shows, SERVER)
 
