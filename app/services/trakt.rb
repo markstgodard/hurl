@@ -42,6 +42,7 @@ module Trakt
     #puts "url: #{url}"
 
     response = HTTParty.get(url)
+    # puts response.body
     json = JSON.parse(response.body)
 
     if episode?(url, json)
