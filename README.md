@@ -3,7 +3,7 @@
 
 ## About
 
-** No longer being actively worked on, as there are a plethora of Chromecast apps for streaming local content **
+*No longer being actively worked on, as there are a plethora of Chromecast apps for streaming local content*
 
 Hurl is a simple and opinionated web-based media server for playing MP4 media files on
 a Google [Chromecast](http:www.google.com/chromecast).
