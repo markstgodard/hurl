@@ -1,10 +1,8 @@
 # Hurl [![Build Status](https://travis-ci.org/markstgodard/hurl.svg?branch=master)](https://travis-ci.org/markstgodard/hurl)
 
-
-## About
-
 **No longer being actively worked on, as there are a plethora of Chromecast apps for streaming local content**
 
+## About
 Hurl is a simple and opinionated web-based media server for playing MP4 media files on
 a Google [Chromecast](http:www.google.com/chromecast).
 
